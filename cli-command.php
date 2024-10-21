@@ -12,9 +12,13 @@ $contents = file_get_contents($options['from']);
 file_put_contents($options['to'], $contents);
 */
 
-
 $application = new Application();
 
 $application->add(new CsvToJsonCommand());
+$application->add(new App\StoreMetadata());
 
-$application->run();
+try {
+    $application->run();
+} catch (Exception $e) {
+
+}
